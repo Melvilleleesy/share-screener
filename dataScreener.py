@@ -24,19 +24,7 @@ def screen_for_implicit_g(responses):
     # Search domain: 0 <= g < min(wacc, roic)
     g_low = 0.0
     g_high = min(wacc, roic) - 1e-9  # stay clear of division by zero / negative numerator
-
     f_low = find_implicit_g(g_low, roic, wacc, pe)
-    f_high = find_implicit_g(g_high, roic, wacc, pe)
-
-    # If signs aren't opposite, there's no root in [g_low, g_high]
-    print(f_low)
-    print(f_high)
-    if f_low == 0:
-        return g_low
-    if f_high == 0:
-        return g_high
-    if f_low * f_high > 0:
-        return None  # no solution under the model/constraints
 
     # Bisection
     while True:
