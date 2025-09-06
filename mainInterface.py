@@ -1,5 +1,5 @@
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
 from dataCollector import get_data
 from dataScreener import screen_data
 
@@ -11,4 +11,4 @@ def main():
     if isinstance(ticker, str):
         ticker = ticker.upper()
     company_data = get_data(ticker)
-    screen_data(company_data)
+    return screen_data(company_data)
