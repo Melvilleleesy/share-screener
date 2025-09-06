@@ -11,4 +11,6 @@ def main():
     if isinstance(ticker, str):
         ticker = ticker.upper()
     company_data = get_data(ticker)
-    return screen_data(company_data)
+    return print(screen_data(company_data))
+
+main()
